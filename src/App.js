@@ -15,7 +15,7 @@ function App() {
 
       
       <Navbar/>
-      <Home/>
+      <Dish/>
      
 
 
