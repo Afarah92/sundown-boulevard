@@ -1,0 +1,55 @@
+nav {
+    width: 100%; }
+
+    nav ul {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;}
+
+        nav ul li {
+            min-width: 100px;
+            list-style: none; 
+            color:#BA2329;
+        }
+
+
+            
+
+            .logo {
+                height: 70px;
+                padding: 10px;
+            }
+
+            .menu-bar {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                width: 40px;
+                height: 40px;
+                display: none;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+            }
+
+            svg.MuiSvgIcon-root.icon {
+                font-size:4rem;
+            }
+
+        
+           
+            @media (max-width: 800px) {
+                .menu-bar  {
+                    display: block;
+                    color:#BA2329;                
+
+
+               }
+
+               
+
+               nav  ul li {
+                display: none;
+           }
+
+            }

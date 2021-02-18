@@ -1,0 +1,101 @@
+.detail-container {
+    border:1px solid black;
+    padding: 20px;
+
+}
+
+.dish {
+    height: 100%;
+    display: grid;
+    grid-gap:0px 0px;
+    grid-template-rows: 1fr ;
+    grid-template-columns: 5fr 1fr;
+
+
+}
+
+.dish-image  {
+    width: 100%;
+    height:400px;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border:1px solid black;
+
+}
+
+
+
+.dish-details {
+    font-size: 40px;
+}
+
+
+ 
+
+.dish-type,.dish-tag, .dish-category , .dish-ingredients{
+    font-size: 20px;
+    line-height: 40px;
+
+}
+
+
+
+   
+
+.btn {
+    text-align: center;
+    width: 100%;
+   
+}
+
+
+.generate-dish {
+       grid-column: 1 / 2;
+
+        }
+
+
+ .next {
+            font-size: 20px;
+            border:1px solid black;
+            padding: 20px;
+
+        }
+ 
+
+           .next button {
+                text-align: center;
+                margin: 10px auto 30px;
+                width: 130px;
+            
+            }
+            
+
+
+          
+
+  @media (max-width: 800px) {
+   
+    .dish {
+        height: 100%;
+        grid-template-rows: 1fr ;
+        grid-template-columns: 1fr;
+        
+    }
+
+    button   {
+        width: 100%;
+    }
+    .next button {
+        width: 100%;
+
+
+    }
+
+ 
+   
+  }
+
+
+   
