@@ -1,4 +1,5 @@
 import './App.css';
+import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import Navbar from '../src/components/Navbar/navBar';
 import Home from '../src/components/Home/home';
 import Dish from '../src/components/Dish/dish';
@@ -15,7 +16,21 @@ function App() {
 
       
       <Navbar/>
-      <Dish/>
+      <Router>
+      <Home/>
+     <Router>
+     
+          
+
+          
+        
+
+
+          </Router>
+       
+
+      </Router>
+
      
 
 
