@@ -1,8 +1,8 @@
 import './App.css';
-import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Navbar from '../src/components/Navbar/navBar';
 import Home from '../src/components/Home/home';
-import Dish from '../src/components/Dish/dish';
+import Dish from './components/Dish/dish';
 import Drink from '../src/components/Drink/Drinks'
 
 
@@ -10,35 +10,24 @@ import Drink from '../src/components/Drink/Drinks'
 
 function App() {
   return (
+    <Router>
     <div className="App">
      
-
-
-      
       <Navbar/>
-      <Router>
-      <Home/>
-     <Router>
-     
-          
-
-          
+      <Switch>
+      <Route path="/" exact component={Home}>
         
+        </Route>
+      <Route path="/Dish" component={Dish}>
 
-
-          </Router>
-       
-
-      </Router>
-
-     
-
-
-      
-
-      
+      </Route>
+      <Route path="/Drinks" component={Drink}>
+        
+        </Route>
+        </Switch>
 
     </div>
+    </Router>
   );
 }
 
