@@ -73,7 +73,7 @@ const Dish = function () {
             
              
 
-        
+
  
          
             </div>
@@ -81,6 +81,30 @@ const Dish = function () {
 
 
             <div className="dish-details"> 
+            <div className="dish-title">
+                <span>Dish: </span>
+                     {title} </div>
+
+        <div className="dish-type">
+            <span>Type:</span>
+                  {type} </div>
+
+        <div class="dish-category">
+            <span>Category: </span>
+                {category}</div>
+
+        <div className="dish-tag">
+          <span>Tags: </span>
+               {tag} </div>
+
+        <div className="dish-ingredients">
+            <span>Ingredient: </span>
+                 {ingredient} </div>
+
+        <div className="dish-source">
+            <span>Source: </span>
+                 {source} </div>
+
 
        
  
