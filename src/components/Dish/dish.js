@@ -1,12 +1,17 @@
 import { useEffect, useState, Fragment } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Dish/dish.css';
+import Drink from '../Drink/Drinks'
 
 const Dish = function () {
 
     const [img, setImg] = useState('');
-    const [Info, setInfo] = useState('');
-
+    const [title, setTitle] = useState('');
+    const [category, setCategory] = useState('');
+    const [tag, setTag] = useState('');
+    const [source, setSource] = useState('');
+    const [type, setType] = useState('');
+    const [ingredient, setIngredient] = useState('');
 
     const fetchDish = function()  {
         fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
@@ -15,74 +20,58 @@ const Dish = function () {
               
             })
         .then(function(dish) {
-            console.log(dish)
+            
 
-          const Dish = dish.meals[0];
-          setImg(Dish.strMealThumb);
-
-        setInfo({
-            category: Dish.strCategory,
-            id: Dish.idMeal,
-            title: Dish.strMeal,
-            area: Dish.strArea,
-            ingredient: Dish.strIngredient1,
-            tags: Dish.strTags,
-            Source:Dish.strSource,
-
-
-    
-        });        
-
-        
-
-
+     const Dish = dish.meals[0];
+     setImg(Dish.strMealThumb);
+     setTitle(Dish.strMeal);
+     setCategory(Dish.strCategory);
+     setTag(Dish.strTags);
+     setSource(Dish.strSource)
+     setType(Dish.strArea)
+     setIngredient(Dish.strIngredient1 )
 
 
         })
 
         
         .catch(function () {
+            console.log('ERROR. PLEASE TRY AGAIN')
 
 
         });
+
     }
 
     useEffect ( function() {
         fetchDish();
-        console.log('fetchDish ran')
-    }, );
+    }, [] ); //dependency array to prevent infinite re-render
 
-    const mealInfomation = function  (meal) {
-        return (
-            <div className="detail-container">
-
-              
-
-                
-             
-
-            </div>
-        )
-
-    }
+    
 
 
 
     return (
 
-        <div className="dish">
+        <div className="dish-container">
 
             
-        
   <div className="dish-image" style={{backgroundImage:`url(${img})`}}>
+     </div>
+   
       
-            </div>
-            
             <div className="next">
                 <p>After you are picked your dish, click next to select  drink</p>
 
-                <button className="btn" >Next</button>
+          
+                <Link to="./Drinks">
+              <button className="btn" >Next</button>
            
+              </Link> 
+
+
+            
+             
 
         
  
@@ -92,9 +81,14 @@ const Dish = function () {
 
 
             <div className="dish-details"> 
+
+       
+ 
+ 
+
+
             
-            {mealInfomation}
-            </div>
+    </div>
             
 
 

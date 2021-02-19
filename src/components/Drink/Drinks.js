@@ -5,6 +5,7 @@ import React from 'react'
 function Drinks() {
     return (
         <div>
+            <h1>Drink section</h1>
             
         </div>
     )

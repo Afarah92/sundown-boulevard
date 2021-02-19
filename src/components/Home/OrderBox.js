@@ -18,13 +18,23 @@ function OrderBox() {
         <div className="order-box">
           <div className="box-content">
           <h2>Order flow box</h2>
-          <Router>
+      
 
-            
-          <Link to="/dish">
+
+<Route>
+  <Switch>
+  <Link to="/dish" >
  <button className="btn"> Order</button>
    </Link>
-     </Router>
+
+
+  </Switch>
+</Route>
+         
+        
+          
+         
+    
 
 
 

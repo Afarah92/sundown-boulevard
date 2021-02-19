@@ -5,6 +5,8 @@ import ContentBox from '../Home/ContentBox';
 import FindOrder from '../Home/FindOrder';
 import '../Home/home.css';
 import { sliderData } from '../Home/sliderData';
+import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
+
 
 
 
@@ -16,7 +18,11 @@ function Home() {
 
       <div className="flex">
       <ImageSlider slides={sliderData}/>
+  
       <OrderBox />
+
+  
+ 
    
 
       </div>
