@@ -3,14 +3,14 @@ import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import React from 'react'
 import '../Drink/drinks.css';
 
-const Drinks = () => {
+const Drinks = function () {
     const [beer, setBeer] = useState([]);
 
 
     const fetchDrinks = function() {
         fetch(`https://api.punkapi.com/v2/beers`)
-        .then(function(resp) { 
-         return resp.json() })
+        .then(function(res) { 
+         return res.json() })
         .then(function(data){
             setBeer(data);
          })
@@ -18,9 +18,9 @@ const Drinks = () => {
         });
     }
 
-    useEffect(() => {
+    useEffect(function() {
         fetchDrinks();
-    }, );
+    },[] );
 
 
     const Beers = (beerList) => {
