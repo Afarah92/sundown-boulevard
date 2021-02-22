@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
-import React from 'react'
 import '../Drink/drinks.css';
 
 const Drinks = function () {
@@ -23,7 +22,7 @@ const Drinks = function () {
     },[] );
 
 
-    const Beers = (beerList) => {
+    const Beers = function (beerList)  {
         const AllBeers = beerList.map((drink) =>
             <div key={drink.id}>
          <div className="drink-image"style={{backgroundImage:`url(${drink.image_url})`}}></div>
