@@ -23,19 +23,14 @@ nav {
 
             .menu-bar {
                 position: absolute;
-                top: 20px;
+                top: 50px;
                 right: 30px;
                 width: 40px;
-                height: 40px;
                 display: none;
-                justify-content: space-evenly;
-                flex-wrap: wrap;
+             
             }
 
-            svg.MuiSvgIcon-root.icon {
-                font-size:4rem;
-            }
-
+         
         
            
             @media (max-width: 800px) {
