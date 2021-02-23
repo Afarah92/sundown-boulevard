@@ -1,12 +1,88 @@
-import React from 'react'
+import { useEffect, useState } from 'react';
+import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Order/order.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
 
 
-function Order() {
+
+
+const  Order = ()  => {
+    const dateValue= new Date();
+   
+
+
+
+
+
+
+
     return (
-        <div>
-            <h1>Order section</h1>
-            
+        <div className="order-container">
+          <div className="order-heading">
+              <h2>Please fill in the details below</h2> 
+                </div>
+
+          
+
+<div className="flex">
+<div className="date-box">
+
+<p>Pick time and date</p>               
+ 
+<DateTimePickerComponent placeholder="Choose a date and time" 
+format="dd-MMM-yy HH:mm"
+value={dateValue}
+
+>
+
+</DateTimePickerComponent>
+
+</div>
+
+
+<div className="amount-input">
+      <p>Select Amount of people </p>             
+      <input type="number" min="1" max="10"> 
+</input>
+
+
+</div>
+
+
+</div>
+
+<div className="flex">
+    
+<div className="email-input">
+<input type="email" name="email" required></input>
+
+       <p>Enter email  </p>             
+          
+</div>
+
+
+</div>
+<div className="next">
+    <Link to="Receipt">
+    <button className="btn">Order</button>
+    </Link>
+</div>
+
+
+
+
+
+
+
+
+
+         
+    
+
+      
+
         </div>
     )
 }
