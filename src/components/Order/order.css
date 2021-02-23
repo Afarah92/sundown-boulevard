@@ -1,0 +1,72 @@
+.order-container  {
+    text-align: center;
+    border:1px solid black;
+    padding: 20px;
+
+}
+
+.order-heading h2  {
+    text-align: center;
+    text-transform: uppercase;
+    padding:10px;
+}
+
+
+
+.flex {
+    display: flex;
+}
+
+
+.flex p {
+    color:#BA2329;                
+
+}
+
+
+
+.react-datepicker__input-container input , input {
+    padding:20px;
+    outline: none;
+    width:30vw;
+    height: 50px;
+    text-align: center;
+    border:none;
+    font-size: 20px;
+    border-bottom: 1px solid black;
+}
+
+.react-datepicker__month-container {
+    width:33vw;
+    border:none;
+}
+
+
+
+
+
+
+@media (max-width: 800px) {
+
+  .flex {
+      display: block;
+    grid-template-rows: 1fr  ;
+    grid-template-columns: 1fr;
+  }
+
+ 
+   
+    .react-datepicker__month-container {
+        width:100vw;
+      
+    }
+    input {
+        width: 100vw;
+        padding:40px;
+        border-bottom: 1px solid black;
+
+    }
+   
+ }
+
+

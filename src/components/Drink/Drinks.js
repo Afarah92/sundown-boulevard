@@ -8,23 +8,23 @@ const Drinks = function () {
     const [beer, setBeer] = useState([]);
 
 
-    const fetchDrinks = function() {
+    const fetchDrinks = () => {
         fetch(`https://api.punkapi.com/v2/beers`)
-        .then(function(res) { 
+        .then((res) => { 
          return res.json() })
-        .then(function(data){
+        .then((data) => {
             setBeer(data);
          })
-        .catch(function () {
+        .catch( () => {
         });
     }
 
-    useEffect(function() {
+    useEffect(()  =>{
         fetchDrinks();
     },[] );
 
 
-    const Beers = function (beerList)  {
+    const Beers =  (beerList) =>  {
         const AllBeers = beerList.map((drink) =>
             <div key={drink.id}>
          <div className="drink-image"style={{backgroundImage:`url(${drink.image_url})`}}></div>

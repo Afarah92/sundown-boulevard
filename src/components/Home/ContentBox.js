@@ -2,7 +2,7 @@ import React from 'react';
 import '../Home/contentBox.css';
 
 
-function ContentBox() {
+const ContentBox = ()  => {
     return (
         <div className="content-box">
        <h2>Content Box</h2>

@@ -9,7 +9,7 @@ import Dish from '../Dish/dish'
 
 
 
-function OrderBox() {
+const OrderBox = () => {
 
 
  

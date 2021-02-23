@@ -2,7 +2,7 @@ import React from 'react';
 import '../Navbar/navBar.css';
 import Logo from '../images/beach.svg';
 
-function navBar() {
+const navBar = () => {
     return (
         <div className="nav">
 

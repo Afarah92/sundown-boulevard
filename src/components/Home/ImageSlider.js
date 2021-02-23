@@ -5,7 +5,7 @@ import {FaArrowAltCircleRight,FaArrowAltCircleLeft}  from 'react-icons/fa';
 
 
 
-function ImageSlider({slides}) {
+const ImageSlider = ({slides}) => {
     const [current,setCurrent]= useState(0);
     const length = slides.length;
 

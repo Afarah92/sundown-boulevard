@@ -10,7 +10,7 @@ import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 
 
 
-function Home() {
+const Home = () => {
   
     return (
         <div>

@@ -2,7 +2,7 @@ import React from 'react';
 import '../Home/findOrder.css';
 
 
-function Order () {
+const Order = () => {
     if (localStorage.getItem('email') !== 'test@dk') {
         console.log(`Found your order`);
         alert("Found your order ")
