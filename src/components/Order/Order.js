@@ -1,20 +1,21 @@
 import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Order/order.css';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
+import { isSunday } from 'date-fns';
 
 
 
 
-const  Order = ()  => {
-    const dateValue= new Date();
-   
+
+function Order() {
 
 
-
-
+   const disableDate = (args)=>{
+    if (args.date.getDay() === 0 || args.date.getDay() === 6) {
+        args.isDisabled = true;
+    }
+}
 
 
 
@@ -31,9 +32,12 @@ const  Order = ()  => {
 
 <p>Pick time and date</p>               
  
+
 <DateTimePickerComponent placeholder="Choose a date and time" 
 format="dd-MMM-yy HH:mm"
-value={dateValue}
+min={new Date()}
+renderDayCell={disableDate}
+
 
 >
 
@@ -56,20 +60,22 @@ value={dateValue}
 <div className="flex">
     
 <div className="email-input">
-<input type="email" name="email" required></input>
+<input type="email" name="email" id="email"></input>
 
        <p>Enter email  </p>             
           
 </div>
 
 
+
+
 </div>
+
 <div className="next">
     <Link to="Receipt">
     <button className="btn">Order</button>
     </Link>
 </div>
-
 
 
 

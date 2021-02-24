@@ -1,0 +1,47 @@
+.receipt-container{
+   width: 100%;
+    max-width: 600px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+  .receipt-container h2{
+    text-transform: uppercase;
+    border-bottom: 2px solid #ba2329;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+
+  .receipt-details li {
+  padding:20px;
+  color:#BA2329;                
+  list-style-type: square;
+  
+  
+     
+  }
+
+ .back {
+    margin-left: auto;
+    position: relative;
+    display: block;
+    width: 150px;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    background:#BA2329;
+ }
+
+
+ .back:active {
+    background: #007ddb;}
+    
+  
+
+      

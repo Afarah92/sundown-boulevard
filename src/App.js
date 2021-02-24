@@ -10,7 +10,7 @@ import Receipt from '../src/components/Receipt/Receipt';
 
 
 
-const App = () => {
+function App ()  {
   return (
     <Router>
     <div className="App">
