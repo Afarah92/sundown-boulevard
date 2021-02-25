@@ -1,4 +1,5 @@
 import './App.css';
+import {Provider} from 'react-redux'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import Navbar from '../src/components/Navbar/navBar';
 import Home from '../src/components/Home/home';
@@ -6,12 +7,14 @@ import Dish from './components/Dish/dish';
 import Drink from '../src/components/Drink/Drinks';
 import Order from '../src/components/Order/Order';
 import Receipt from '../src/components/Receipt/Receipt';
-
-
+import {createStore, applyMiddleware} from 'redux'
+import Store from './Store';
 
 
 function App ()  {
   return (
+    <Provider store={Store}>
+
     <Router>
     <div className="App">
      
@@ -35,6 +38,10 @@ function App ()  {
 
     </div>
     </Router>
+
+    </Provider>
+
+
   );
 }
 
