@@ -7,8 +7,7 @@ import Dish from './components/Dish/dish';
 import Drink from '../src/components/Drink/Drinks';
 import Order from '../src/components/Order/Order';
 import Receipt from '../src/components/Receipt/Receipt';
-import {createStore, applyMiddleware} from 'redux'
-import Store from './Store';
+import Store from '../src/Redux/Store';
 
 
 function App ()  {
@@ -23,16 +22,16 @@ function App ()  {
       <Route path="/" exact component={Home}>
         
         </Route>
-      <Route path="/Dish" component={Dish}>
+      <Route path="/dish" component={Dish}>
 
       </Route>
-      <Route path="/Drinks" component={Drink}> 
+      <Route path="/drinks" component={Drink}> 
       </Route>
 
-      <Route path="/Order" component={Order}> 
+      <Route path="/order" component={Order}> 
       </Route>
 
-      <Route path="/Receipt" component={Receipt}> 
+      <Route path="/receipt" component={Receipt}> 
       </Route>
         </Switch>
 

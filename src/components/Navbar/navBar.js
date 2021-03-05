@@ -1,8 +1,13 @@
 import React from 'react';
 import '../Navbar/navBar.css';
 import Logo from '../images/beach.svg';
+import { useHistory } from "react"
+
 
 const navBar = () => {
+   
+    
+
     return (
         <div className="nav">
 
@@ -13,7 +18,7 @@ const navBar = () => {
 
 
    <ul>
-            <img src={Logo} className="logo" alt="logo" />
+            <img  src={Logo} className="logo" alt="logo" />
 
 				
 				   <li>Restauranter</li>

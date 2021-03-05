@@ -1,51 +1,25 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import '../Home/orderBox.css';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import Dish from '../Dish/dish'
 
-
-
-
-
-
-
 const OrderBox = () => {
 
-
- 
     return (
-     
-        <div className="order-box">
+
+  
+    <div className="order-box">
           <div className="box-content">
           <h2>Order flow box</h2>
       
-
-
-<Route>
-  <Switch>
-  <Link to="/dish" >
- <button className="btn"> Order</button>
-   </Link>
-
-
-  </Switch>
-</Route>
-         
-        
-          
-         
-    
-
-
-
-
-            
+        <Link to="/dish" >
+         <button className="btn"> Order</button>
+        </Link>
+     
           </div>
     
       
-        
-      
-      </div>
+   </div>
       
     )
 }

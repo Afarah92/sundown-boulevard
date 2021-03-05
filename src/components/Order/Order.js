@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Order/order.css';
 import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
-import { isSunday } from 'date-fns';
-
-
-
+import { connect } from "react-redux";
 
 
 function Order() {
@@ -16,8 +13,6 @@ function Order() {
         args.isDisabled = true;
     }
 }
-
-
 
     return (
         <div className="order-container">
@@ -72,25 +67,27 @@ renderDayCell={disableDate}
 </div>
 
 <div className="next">
-    <Link to="Receipt">
+    <Link to="receipt">
     <button className="btn">Order</button>
     </Link>
 </div>
-
-
-
-
-
-
-
-
-         
-    
-
       
 
         </div>
     )
 }
 
-export default Order
+
+const mapStateToProps = (state) => ({
+ 
+  });
+  
+  const mapDispatchToProps = (dispatch) => ({
+    orderEmail: (payload) => dispatch({ type: "SET_EMAIL", payload: payload }),
+    orderDate: (payload) => dispatch({ type: "SET_DATE", payload: payload }),
+    OrderAmount: (payload) =>
+      dispatch({ type: "SET_GUEST_AMOUNT", payload: payload }),
+  });
+
+  export default connect(mapStateToProps, mapDispatchToProps)(Order);
+

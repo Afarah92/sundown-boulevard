@@ -1,8 +1,8 @@
-
-
 import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Drink/drinks.css';
+import { connect } from "react-redux";
+
 
 const Drinks = function () {
     const [beer, setBeer] = useState([]);
@@ -27,7 +27,7 @@ const Drinks = function () {
     const Beers =  (beerList) =>  {
         const AllBeers = beerList.map((drink) =>
             <div key={drink.id}>
-         <div className="drink-image"style={{backgroundImage:`url(${drink.image_url})`}}></div>
+         <div className="drink-image"style={{backgroundImage:`url(${drink.image_url} )`}}></div>
                 <div className="drink-name"><h4>{drink.name}</h4></div>
                 <div className="drink-tagline"><p>{drink.tagline}</p></div>
                 <div className="drink-first_brewed"><p>{drink.first_brewed}</p></div>
@@ -57,7 +57,7 @@ const Drinks = function () {
          
    <div className="next">
       <p>After you are picked your drink, click next to place your order  </p>
-   <Link to="./Order">
+   <Link to="./order">
       <button className="btn" >Order</button>
    </Link> 
             </div>
@@ -65,4 +65,12 @@ const Drinks = function () {
     )
 }
 
-export default Drinks
+const mapStateToProps = (state) => ({
+    order: state.order
+  });
+  const mapDispatchToProps = (dispatch) => ({
+    drinksDis: (payload) => dispatch({ type: "SET_DRINK", payload: payload }),
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Drinks);
+
