@@ -5,7 +5,7 @@ import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
 import { connect } from "react-redux";
 
 
-function Order() {
+const Order = props => {
 
 
    const disableDate = (args)=>{

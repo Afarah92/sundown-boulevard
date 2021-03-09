@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 
 
-const  Receipt = ()  => {
+const  Receipt = props  => {
     return (
         <div className="container">
              <div className="receipt-container">

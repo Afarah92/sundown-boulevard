@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Dish/dish.css';
 import Drink from '../Drink/Drinks'
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 
 
 
-const Dish = () => {
+const Dish = props => {
+
+  const order = useSelector(state => state.order)
 
     const [img, setImg] = useState('');
     const [info, setInfo] = useState('');
@@ -24,6 +26,7 @@ const Dish = () => {
         .then((dish) => {
             
      const Dish = dish.meals[0];
+     
      setImg(Dish.strMealThumb);
      setInfo({
          image:Dish.strMealThumb,
@@ -45,7 +48,6 @@ const Dish = () => {
     useEffect (() => {
         fetchDish();
     }, [] ); //dependency array to prevent infinite re-render
-
 
 
 

@@ -4,7 +4,7 @@ import '../Drink/drinks.css';
 import { connect } from "react-redux";
 
 
-const Drinks = function () {
+const Drinks = props => {
     const [beer, setBeer] = useState([]);
 
 
