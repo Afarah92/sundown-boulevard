@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Drink/drinks.css';
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 
 const Drinks = props => {
     const [beer, setBeer] = useState([]);
+    const order = useSelector(state => state.order)
+
 
 
     const fetchDrinks = () => {
@@ -66,7 +68,7 @@ const Drinks = props => {
 }
 
 const mapStateToProps = (state) => ({
-    order: state.order
+    order: state.main.order
   });
   const mapDispatchToProps = (dispatch) => ({
     drinksDis: (payload) => dispatch({ type: "SET_DRINK", payload: payload }),

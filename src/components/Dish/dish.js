@@ -7,9 +7,8 @@ import { connect, useSelector } from "react-redux";
 
 
 
-const Dish = props => {
-
-  const order = useSelector(state => state.order)
+const Dish = (props) => {
+  console.log(props)
 
     const [img, setImg] = useState('');
     const [info, setInfo] = useState('');
@@ -75,18 +74,16 @@ const Dish = props => {
                 <span>Dish: </span>
                      {info.title} </div>
 
-        <div className="dish-type">
-            <span>Type:</span>
-                  {info.type} </div>
+                     <div className="dish-type">
+                       <span>Type: </span>
+                       {info.type}</div>
 
-        <div className="dish-category">
-            <span>Category: </span>
-                {info.category}</div>
+                       <div className="dish-category">
+                         <span> Category: </span>
+                         {info.category}
+                    </div>
 
-        <div className="dish-tag">
-          <span>Tags: </span>
-               {info.tag} </div>
-
+                   
 
         <div className="dish-ingredients">
             <span>Ingredient: </span>
@@ -100,8 +97,6 @@ const Dish = props => {
           
     </div>
             
-
-
             <div className="generate-dish">
              <button
              className="btn" onClick={fetchDish}>Generate New Dish</button>
@@ -114,13 +109,21 @@ const Dish = props => {
 }
 
 
-  
 const mapStateToProps = (state) => ({
-  order: state.order
-});
+  order: state.main
+  
+
+  
+})
+
 
 const mapDispatchToProps = (dispatch) => ({
-  setDish: (payload) => dispatch({ type: "SET_DISH", payload: payload }),
-});
+  setDish:(payload) => dispatch ({type:"SET_DISH", payload:payload})
+  
+
+
+
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dish);
+

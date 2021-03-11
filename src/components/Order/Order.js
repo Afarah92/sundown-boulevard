@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Order/order.css';
 import { DateTimePickerComponent } from '@syncfusion/ej2-react-calendars';
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 
 const Order = props => {
+
+    const order = useSelector(state => state.order)
+
 
 
    const disableDate = (args)=>{
@@ -79,6 +82,8 @@ renderDayCell={disableDate}
 
 
 const mapStateToProps = (state) => ({
+
+    order:state.main.order
  
   });
   

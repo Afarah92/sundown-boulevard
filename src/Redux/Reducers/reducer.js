@@ -10,8 +10,7 @@ import {
 const intitalDate = new Date();
 
 
-
- const initialState = {
+const initialState = {
   order: {
    date:intitalDate,
     time: "16:00",
@@ -22,7 +21,7 @@ const intitalDate = new Date();
       strMeal: "",
       strCategory: "",
       strMealThumb: "",
-      strTags: "",
+      strTags:"",
 
     },
     drinks: [],
@@ -34,53 +33,53 @@ const orderReducer =  (state = initialState, action) => {
     switch (action.type) {
     case SET_DISH:
             return {
-             ...state,
-             order:action.payload
-
+              ...state,
+              order:action.payload,
+            
+      
             };
             
             break;
 
+
+   case SET_DRINK: 
+         return {
+         ...state,
+      drink:action.payload
+            }
+
    
-                    
-    case SET_DRINK:
-        return {
-          ...state,
-          order:action.payload
-                
-        };
-                            
-    break;
-
-   case SET_DATE:
-     return {
-       ...state,
-       order:action.payload
-
-     };
-            
      break;
+
+
+  case SET_DATE:
+       return {
+         ...state,
+         date:action.payload
+
+       }
+
+       break;
+
 
    case SET_EMAIL:
-       return {
-        ...state,
-        order:action.payload
-        
-      };
-                    
-     break;
+         return {
+           ...state,
+           email:action.payload
+         }
 
-     case SET_GUEST_AMOUNT:
-        return {
-          ...state,
-          guest:action.payload
-        
-          };
-                            
-          break;
+  
+  break;
+
+  case SET_GUEST_AMOUNT:
+    return {
+      ...state,
+      guests:action.payload 
+    } 
+
+   break;
 
 
-    
      default:
      return state;
      
