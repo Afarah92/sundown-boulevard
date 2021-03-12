@@ -1,78 +1,94 @@
 import { useEffect, useState } from 'react';
-import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
-import '../Drink/drinks.css';
-import { connect, useSelector } from "react-redux";
+import { Link, Route, Switch } from 'react-router-dom';
+import './drinks.css';
+import Order from '../Order/Order';
+import { connect } from "react-redux";
 
 
-const Drinks = props => {
-    const [beer, setBeer] = useState([]);
-    const order = useSelector(state => state.order)
+const Drinks = (props) => {
+  
+    const [beer, setBeer] = useState('');
+    const [selectedDrinks, setSelectedDrinks] = useState([]);
+
+
+    //const {setDrink} = props;
 
 
 
     const fetchDrinks = () => {
         fetch(`https://api.punkapi.com/v2/beers`)
-        .then((res) => { 
-         return res.json() })
-        .then((data) => {
-            setBeer(data);
-         })
-        .catch( () => {
+        .then((res) => { return res.json() })
+        .then((drinks) => {
+            setBeer(drinks);
+        })
+        .catch(function () {
         });
     }
 
-    useEffect(()  =>{
-        fetchDrinks();
-    },[] );
-
-
-    const Beers =  (beerList) =>  {
-        const AllBeers = beerList.map((drink) =>
-            <div key={drink.id}>
-         <div className="drink-image"style={{backgroundImage:`url(${drink.image_url} )`}}></div>
-                <div className="drink-name"><h4>{drink.name}</h4></div>
-                <div className="drink-tagline"><p>{drink.tagline}</p></div>
-                <div className="drink-first_brewed"><p>{drink.first_brewed}</p></div>
-
-
-            </div>
-        );
-        console.log(AllBeers)
-        return (AllBeers)
+    const selectedDrink = (id) => {
+        if(selectedDrinks.includes(id)){
+     setSelectedDrinks(arr => arr.filter(item => item !== id));
+        } else {
+     setSelectedDrinks(arr => [...arr, id]);
+        }
     }
 
-  
+
+    const Beers = (beerList) => {
+        const AllBeers = beerList.map((drink) =>
+            <div
+                key={drink.id}
+                className={`drink ${selectedDrinks.includes(drink.id) ? 'tick' : ''}`}
+                onClick={() => selectedDrink(drink.id)}>
+                <div className="image" style={{backgroundImage: `url(${drink.image_url})`}}></div>
+                <div className="title">{drink.name}</div>
 
 
-     return (
-
-    <div className="drink-box">
-
-      <div className="drink-container">
-
-        {setBeer ? Beers(beer):
-        <div><h2>Please pick another drink</h2></div>}
-
-      </div>
-
-
-         
-   <div className="next">
-      <p>After you are picked your drink, click next to place your order  </p>
-   <Link to="./order">
-      <button className="btn" >Order</button>
-   </Link> 
+                <div className="selected-drink">✓</div>
             </div>
+        );
+        return (AllBeers)
+        console.log(AllBeers)
+
+
+    }
+
+    useEffect(() => {
+        fetchDrinks();
+    }, []);
+
+    return (
+        <div className="drinks">
+            <div className="beerList">
+                {beer ? Beers(beer) : <div>No drinks found. please try again</div>}
+            </div>
+            
+            <div className="next">
+                After you are picked your drinks, click next to order.
+                <Link to="/order">
+                    <button className="btn">
+                        Next
+                    </button>
+                </Link>
+            </div>
+          
         </div>
-    )
+    );
 }
 
+
 const mapStateToProps = (state) => ({
-    order: state.main.order
-  });
-  const mapDispatchToProps = (dispatch) => ({
-    drinksDis: (payload) => dispatch({ type: "SET_DRINK", payload: payload }),
-  });
+    order: state.main
+    
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Drinks);
+    
+  })
+
+const mapDispatchToProps = (dispatch) => ({
+    setDrink: (payload) => dispatch({ type: "SET_DRINK", payload: payload }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Drinks);
+
+
 

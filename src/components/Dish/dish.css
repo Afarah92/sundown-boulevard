@@ -47,15 +47,14 @@
  
            .next button {
                 text-align: center;
-                margin: 10px auto 30px;
                 width: 130px;
+
             
             }
             
 @media (max-width: 800px) {
    
     .dish-container {
-        height: 100%;
         grid-template-rows: 1fr ;
         grid-template-columns: 1fr;
         

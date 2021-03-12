@@ -2,39 +2,30 @@ import { useEffect, useState } from 'react';
 import { Switch, Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import '../Dish/dish.css';
 import Drink from '../Drink/Drinks'
-import { connect, useSelector } from "react-redux";
-
+import { connect } from "react-redux";
 
 
 
 const Dish = (props) => {
-  console.log(props)
+console.log(props)
+const {setDish} = props;
 
-    const [img, setImg] = useState('');
-    const [info, setInfo] = useState('');
+const fetchDish =() => {
 
-
-
-    const fetchDish =() => {
-
-        fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
-        .then((result) => {
-             return result.json()
-              
-            })
+   fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+       .then((result) => {
+           return result.json()})
         .then((dish) => {
-            
-     const Dish = dish.meals[0];
+          const Dish = dish.meals[0];
      
-     setImg(Dish.strMealThumb);
-     setInfo({
-         image:Dish.strMealThumb,
-         title: Dish.strMeal,
-         category:Dish.strCategory,
-         tag:Dish.strTags,
-         type:Dish.strArea,
-         source:Dish.strSource,
-         ingredient:Dish.strIngredient1
+        setDish({
+        image:Dish.strMealThumb,
+        title: Dish.strMeal,
+       category:Dish.strCategory,
+       tag:Dish.strTags,
+       type:Dish.strArea,
+     ingredient:Dish.strIngredient1,
+    source:Dish.strSource,
      });
         })
 
@@ -53,11 +44,11 @@ const Dish = (props) => {
     return (
 
   <div className="dish-container">     
-    <div className="dish-image" style={{backgroundImage:`url(${img})`}}>
+    <div className="dish-image" style={{backgroundImage:`url(${props.order.order.image})`}}>
      </div>
    
       
-            <div className="next">
+         <div className="next">
                 <p>After you are picked your dish, click next to select  drink</p>
 
           
@@ -72,28 +63,39 @@ const Dish = (props) => {
             <div className="dish-details"> 
             <div className="dish-title">
                 <span>Dish: </span>
-                     {info.title} </div>
+                {props.order.order.title}
+
+              
+                   </div>
 
                      <div className="dish-type">
                        <span>Type: </span>
-                       {info.type}</div>
+                       {props.order.order.type}
+
+                    </div>
 
                        <div className="dish-category">
                          <span> Category: </span>
-                         {info.category}
+                         {props.order.order.category}
+
+                       
                     </div>
 
                    
 
         <div className="dish-ingredients">
             <span>Ingredient: </span>
-               {info.ingredient} </div>
+            {props.order.order.ingredient}
 
-        <div className="dish-source">
+               </div>
+
+               <div className="dish-source">
             <span>Source: </span>
-               {info.source} </div>
+            {props.order.order.source}
 
+               </div>
 
+  
           
     </div>
             
