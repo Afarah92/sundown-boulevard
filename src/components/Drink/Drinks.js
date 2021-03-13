@@ -2,16 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import './drinks.css';
 import Order from '../Order/Order';
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 
 const Drinks = (props) => {
   
     const [beer, setBeer] = useState('');
     const [selectedDrinks, setSelectedDrinks] = useState([]);
-
-
-    //const {setDrink} = props;
+    const { setDrink } = props;
 
 
 
@@ -27,11 +25,13 @@ const Drinks = (props) => {
 
     const selectedDrink = (id) => {
         if(selectedDrinks.includes(id)){
-     setSelectedDrinks(arr => arr.filter(item => item !== id));
+            setDrink(arr => arr.filter(item => item !== id));
         } else {
-     setSelectedDrinks(arr => [...arr, id]);
+            setDrink(arr => [...arr, id]);
+
         }
     }
+
 
 
     const Beers = (beerList) => {
@@ -39,7 +39,7 @@ const Drinks = (props) => {
             <div
                 key={drink.id}
                 className={`drink ${selectedDrinks.includes(drink.id) ? 'tick' : ''}`}
-                onClick={() => selectedDrink(drink.id)}>
+                onClick={() => setDrink(drink )}>
                 <div className="image" style={{backgroundImage: `url(${drink.image_url})`}}></div>
                 <div className="title">{drink.name}</div>
 
@@ -48,8 +48,7 @@ const Drinks = (props) => {
             </div>
         );
         return (AllBeers)
-        console.log(AllBeers)
-
+        console.log(setDrink)
 
     }
 
@@ -60,9 +59,12 @@ const Drinks = (props) => {
     return (
         <div className="drinks">
             <div className="beerList">
-                {beer ? Beers(beer) : <div>No drinks found. please try again</div>}
+                {
+                beer ? Beers(beer) 
+                :<div></div>
+                }
             </div>
-            
+         
             <div className="next">
                 After you are picked your drinks, click next to order.
                 <Link to="/order">
@@ -78,7 +80,7 @@ const Drinks = (props) => {
 
 
 const mapStateToProps = (state) => ({
-    order: state.main
+    order: state.main.drinks
     
   
     
@@ -89,6 +91,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Drinks);
-
 
 
