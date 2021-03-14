@@ -1,94 +1,66 @@
 import {
-    SET_DISH ,
-    SET_DRINK,
-    SET_EMAIL,
-    SET_DATE,
-    SET_GUEST_AMOUNT
- } from '../Actions/Types';
+  SET_DISH,
+  SET_DRINK,
+  SET_DETAILS
+} from '../Actions/Types';
 
 
 const intitalDate = new Date();
 
 
 const initialState = {
-  order: {
-   date:intitalDate,
-    time: "16:00",
-    guests: 1,
-    email: "",
-    dish: {
-      idMeal: "",
-      strMeal: "",
-      strCategory: "",
-      strMealThumb: "",
-      strTags:"",
-
-    },
-    drinks: [],
-  },
+  date: intitalDate,
+  time: "16:00",
+  guests: 1,
+  email: "",
+  idMeal: "",
+  strMeal: "",
+  strCategory: "",
+  strMealThumb: "",
+  strTags: "",
+  drinks: [],
 };
 
-const orderReducer =  (state = initialState, action) => {
+const orderReducer = (state = initialState, action) => {
 
-    switch (action.type) {
+  switch (action.type) {
     case SET_DISH:
-            return {
-              ...state,
-              order:action.payload,
-            
-      
-            };
-            
-            break;
+
+      return {
+        ...state,
+        ...action.payload
+      };
+
+    case SET_DRINK:
+      return {
+        ...state,
+        drink: action.payload
+      }
 
 
-   case SET_DRINK: 
-         return {
-         ...state,
-      drink:action.payload
-            }
+      case SET_DETAILS:
+        const {
+          date, amount, email
+        } = action.payload;
 
-   
-     break;
-
-
-  case SET_DATE:
-       return {
-         ...state,
-         date:action.payload
-
-       }
-
-       break;
+        return {
+          ...state,
+          guests: amount,
+            email: email,
+            date: date,
+        }
 
 
-   case SET_EMAIL:
-         return {
-           ...state,
-           email:action.payload
-         }
 
-  
-  break;
-
-  case SET_GUEST_AMOUNT:
-    return {
-      ...state,
-      guests:action.payload 
-    } 
-
-   break;
-
-
-     default:
-     return state;
-     
-    }
-
-
+        default:
+          return state;
 
   }
 
 
 
-  export default orderReducer
+}
+
+
+
+export default orderReducer

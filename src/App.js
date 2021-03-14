@@ -1,44 +1,86 @@
 import './App.css';
-import {Provider} from 'react-redux'
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import {
+  Provider
+} from 'react-redux'
+import {
+  Switch,
+  Route,
+  BrowserRouter as Router
+} from 'react-router-dom';
 import Navbar from '../src/components/Navbar/navBar';
 import Home from '../src/components/Home/home';
-import Dish from './components/Dish/dish';
-import Drink from '../src/components/Drink/Drinks';
+import {
+  Dish,
+  Drink,
+
+} from './components';
 import Order from '../src/components/Order/Order';
-import Receipt from '../src/components/Receipt/Receipt';
-import Store from '../src/Redux/Store';
+import Receipt from '../src/components/Receipt/Receipt'
+
+import Store from '../src/redux/Store';
 
 
-function App ()  {
-  return (
-    <Provider store={Store}>
 
-    <Router>
-    <div className="App">
-     
-      <Navbar/>
-      <Switch>
-      <Route path="/" exact component={Home}>
-        
-        </Route>
-      <Route path="/dish" component={Dish}>
+function App() {
+  return ( <
+    Provider store = {
+      Store
+    } >
 
-      </Route>
-      <Route path="/drinks" component={Drink}> 
-      </Route>
+    <
+    Router >
+    <
+    div className = "App" >
 
-      <Route path="/order" component={Order}> 
-      </Route>
+    <
+    Navbar / >
+    <
+    Switch >
+    <
+    Route path = "/"
+    exact component = {
+      Home
+    } >
 
-      <Route path="/receipt" component={Receipt}> 
-      </Route>
-        </Switch>
+    <
+    /Route> <
+    Route path = "/dish"
+    component = {
+      Dish
+    } >
 
-    </div>
-    </Router>
+    <
+    /Route> <
+    Route path = "/drinks"
+    component = {
+      Drink
+    } >
+    <
+    /Route>
 
-    </Provider>
+    <
+    Route path = "/order"
+    component = {
+      Order
+    } >
+    <
+    /Route>
+
+    <
+    Route path = "/receipt"
+    component = {
+      Receipt
+    } >
+    <
+    /Route> < /
+    Switch >
+
+    <
+    /div> < /
+    Router >
+
+    <
+    /Provider>
 
 
   );

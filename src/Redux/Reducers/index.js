@@ -1,11 +1,8 @@
-import { combineReducers } from "redux";
-import main from "./reducer";
+import {
+    combineReducers
+} from "redux";
+import order from "./reducer";
 
 export default combineReducers({
-
-    main
+    order
 });
-
-
-
-
